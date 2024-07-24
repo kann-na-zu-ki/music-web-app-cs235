@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<main>
+    <h2 class="sub-header"> Playlists </h2>
+
+    <div id="playlists">
+        <table>
+        {% for p in playlists %}
+        <tr><td>
+            <h3> <a href="/playlist/{{p.playlist_id}}"> {{p.name}} </a> </h3>
+
+        </td></tr>
+        {% endfor %}
+
+    </table>
+    
+    </div>
+
+    <div class="form-wrapper" id='createplaylistform' >
+
+    <a class='btn-general' href="{{ url_for('tracks_bp.create_random_playlist') }}"> Generate random playlist </a> 
+
+    <h3> Or create your own below </h3> <br>
+    <form action="{{handler_url}}" method="post">
+        {{form.csrf_token}} <!-- Need to include this token - Flask WTForms requires it. -->
+        <div class="form-field">
+        {{form.title.label}} <br>
+        {{form.title}}
+        </div>
+
+        {% if form.title.errors %}
+                        <ul class="errors">
+        	            {% for error in form.title.errors %}
+        		            <li>{{error}}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+        {% if error is not none %}
+        <ul> {{error}} </ul>
+        {% endif %}
+        {{form.submit}}
+
+    </form>
+    
+</div>
+
+</main>
+{% endblock %}

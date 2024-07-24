@@ -1,0 +1,16 @@
+<aside id="sidebar" xmlns="http://www.w3.org/1999/html">
+
+    <header>
+        <h1>Random Picks for U</h1>
+
+
+    </header>
+    {% for track in selected_tracks %}
+            <div id="article-container">
+            <div id="article-description">
+            <h3><a href="{{ track.track_url }}" target="_blank" style="color: blue">{{track.title}}</a></h3>
+            </div>
+            </div>
+        {% endfor %}
+
+</aside>

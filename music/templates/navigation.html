@@ -1,0 +1,44 @@
+<nav id="nav">
+  <img id="logo" src="{{ url_for('static', filename='music.png') }}" />
+
+  <h2 id="nav-header">
+    {% if 'user_name' in session %} Hello, {{ session['user_name'] }} {%
+    endif %}
+  </h2>
+  <a class="btn-nav" href="{{ url_for('home_bp.home') }}">Home</a>
+  <a class="btn-nav" href="{{ url_for('authentication_bp.register') }}">Register</a>
+  <a class="btn-nav" href="{{ url_for('authentication_bp.login') }}">Login</a>
+  <a class="btn-nav" href="{{ url_for('authentication_bp.logout') }}">Logout</a>
+
+  <div>
+    <h3>
+        <a class="btn-nav" href="{{ url_for('tracks_bp.get_tracks') }}">
+        Browse Tracks
+      </a>
+      <a class="btn-nav" href="{{ url_for('tracks_bp.get_artists') }}">
+        Browse Artists
+      </a>
+      <a class="btn-nav" href="{{ url_for('tracks_bp.get_genres') }}"> Browse Genres </a>
+      <a class="btn-nav" href="{{ url_for('tracks_bp.get_albums') }}"> Browse Albums </a>
+      <a class="btn-nav" href="{{ url_for('tracks_bp.search_tracks') }}">
+        Search Tracks
+        </a>
+      <a class="btn-nav" href="{{ url_for('tracks_bp.create_playlist') }}"> Playlists </a>
+    </h3>
+  </div>
+
+
+  <div>
+    <h3 id="sub-nav-header">
+
+
+      </a>
+    </h3>
+  </div>
+
+
+
+  <div id="nav-footer">
+    Developed by Ruth & Jason
+  </div>
+</nav>

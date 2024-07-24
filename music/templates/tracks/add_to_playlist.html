@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<main>
+    <h2 class="sub-header"> Add track to playlist</h2>
+    <form class='addtrackform' action="{{handler_url}}" method="post">
+        {{form.track_id}} <!-- Need to include this hidden field as it tracks the article being commented. -->
+        {{form.csrf_token}} <!-- Need to include this token - Flask WTForms requires it. -->
+        {{form.playlist}}
+        {{form.submit}}
+
+    </form>
+</main>
+{% endblock %}
